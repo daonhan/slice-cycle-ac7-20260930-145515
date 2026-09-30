@@ -33,7 +33,7 @@ Deliver the named greeting and all deterministic argument failures together with
 ### Acceptance criteria
 
 - [ ] Preserve the original no-argument child-process test and exact greeting contract.
-- [ ] Pass every row of the source PRD's child-process contract matrix, including ` Ada ` producing exactly `Hello,  Ada !` plus LF.
+- [ ] Pass every row of the source PRD's child-process contract matrix, including `' Ada '` producing exactly `Hello,  Ada !` plus LF.
 - [ ] Demonstrate real new-behavior red/green evidence through the CLI process boundary.
 - [ ] Reject missing, blank, option-looking, duplicate, unknown, extra, and unsupported forms with the single exact diagnostic, empty stdout, and exit 2.
 - [ ] Preserve accepted NAME without evaluation or normalization.

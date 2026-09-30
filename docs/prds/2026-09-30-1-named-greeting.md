@@ -41,7 +41,7 @@ Each successful greeting in this table has one terminating LF; quotes show argum
 | `--name`, `Ada` | `Hello, Ada!` | empty | 0 |
 | `--name`, `Ada Lovelace` | `Hello, Ada Lovelace!` | empty | 0 |
 | `--name`, `Đào` | `Hello, Đào!` | empty | 0 |
-| `--name`, ` Ada ` | `Hello,  Ada !` | empty | 0 |
+| `--name`, `' Ada '` | `Hello,  Ada !` | empty | 0 |
 | `--name`, `$(echo injected)` | `Hello, $(echo injected)!` | empty | 0 |
 | `--name` | empty | fixed usage plus LF | 2 |
 | `--name`, empty string | empty | fixed usage plus LF | 2 |
@@ -76,6 +76,6 @@ Baseline inspection and real CLI probes showed that no arguments, `--name Ada`, 
 
 Pass 1 verdict: go. Effective verdict: go. Critical: none. New failure mode: none. Route: separate read-only Codex app review bridge, with a same-vendor deviation. The reviewer ran outside the planning session's context.
 
-Folded warning: add the ` Ada ` child-process row to catch accidental trimming. Verified reasoning: this argument contains non-whitespace content and has no raw leading hyphen, so the selected grammar accepts it; the original no-argument test does not guard literal whitespace preservation. Expected stdout is exactly `Hello,  Ada !` plus LF, empty stderr, exit 0. No second pass is required.
+Folded warning: add the `' Ada '` child-process row to catch accidental trimming. Verified reasoning: this argument contains non-whitespace content and has no raw leading hyphen, so the selected grammar accepts it; the original no-argument test does not guard literal whitespace preservation. Expected stdout is exactly `Hello,  Ada !` plus LF, empty stderr, exit 0. No second pass is required.
 
 Ralph owns product implementation, tests, and README updates. One bounded workload with at most two iterations is available; no further repair workload is authorized. Targeted verification must run in the foreground. Independent code, security, and documentation passes precede publication; the full repository gate and ordinary CI precede merge.

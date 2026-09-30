@@ -1,0 +1,20 @@
+default_install_hook_types: [pre-push]
+default_stages: [pre-push]
+
+repos:
+  - repo: local
+    hooks:
+      - id: syntax-check
+        name: Check CLI syntax
+        entry: npm run check
+        language: system
+        pass_filenames: false
+        include_deleted: true
+        always_run: true
+      - id: test
+        name: Test CLI behavior
+        entry: npm test
+        language: system
+        pass_filenames: false
+        include_deleted: true
+        always_run: true
